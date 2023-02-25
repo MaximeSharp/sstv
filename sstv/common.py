@@ -23,7 +23,7 @@ def log_message(message="", show=True, err=False, recur=False, prefix=True):
     if prefix:
         message = ' '.join(["[sstv]", message])
 
-    print(message, file=out, end=end)
+    #print(message, file=out, end=end)
 
 
 def progress_bar(progress, complete, message="", show=True):
