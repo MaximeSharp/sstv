@@ -82,7 +82,8 @@ class SSTVDecoder(object):
         """Closes any input files if they exist"""
 
         if self._audio_file is not None and not self._audio_file.closed:
-            self._audio_file.close()
+            #self._audio_file.close()
+            print("closed")
 
     def _peak_fft_freq(self, data):
         """Finds the peak frequency from a section of audio data"""
