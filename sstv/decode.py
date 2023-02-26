@@ -49,11 +49,11 @@ class SSTVDecoder(object):
     def __enter__(self):
         return self
 
-    #def __exit__(self, exc_type, exc_val, traceback):
-    #   self.close()
+    def __exit__(self, exc_type, exc_val, traceback):
+       self.close()
 
-    #def __del__(self):
-    #   self.close()
+    def __del__(self):
+       self.close()
 
     def decode(self, skip=0.0):
         """Attempts to decode the audio data as an SSTV signal
@@ -77,11 +77,12 @@ class SSTVDecoder(object):
 
         return self._draw_image(image_data)
 
-    #def close(self):
-    #    """Closes any input files if they exist"""
+    def close(self):
+        """Closes any input files if they exist"""
 
-    #    if self._audio_file is not None and not self._audio_file.closed:
-    #        self._audio_file.close()
+        if self._audio_file is not None:
+            if not self._audio_file.closed:
+                self._audio_file.close()
 
     def _peak_fft_freq(self, data):
         """Finds the peak frequency from a section of audio data"""
