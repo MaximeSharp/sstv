@@ -49,11 +49,11 @@ class SSTVDecoder(object):
     def __enter__(self):
         return self
 
-    def __exit__(self, exc_type, exc_val, traceback):
-        self.close()
+    #def __exit__(self, exc_type, exc_val, traceback):
+    #   self.close()
 
-    def __del__(self):
-        self.close()
+    #def __del__(self):
+    #   self.close()
 
     def decode(self, skip=0.0):
         """Attempts to decode the audio data as an SSTV signal
