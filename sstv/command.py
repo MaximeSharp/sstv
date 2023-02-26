@@ -6,7 +6,6 @@ from sys import argv, exit
 from PIL import Image
 from soundfile import available_formats as available_audio_formats
 
-from .common import log_message
 from .decode import SSTVDecoder
 from .spec import VIS_MAP
 
@@ -113,8 +112,6 @@ examples:
             try:
                 img.save(self._output_file)
             except (KeyError, ValueError):
-                log_message("Error saving file, saved to result.png instead",
-                            err=True)
                 img.save("result.png")
 
     def close(self):
