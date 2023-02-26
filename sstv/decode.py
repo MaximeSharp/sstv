@@ -81,8 +81,7 @@ class SSTVDecoder(object):
         """Closes any input files if they exist"""
 
         if self._audio_file is not None and not self._audio_file.closed:
-            #self._audio_file.close()
-            print("closed")
+            self._audio_file.close()
 
     def _peak_fft_freq(self, data):
         """Finds the peak frequency from a section of audio data"""
@@ -92,6 +91,7 @@ class SSTVDecoder(object):
 
         # Get index of bin with highest magnitude
         x = np.argmax(fft)
+        
         # Interpolated peak frequency
         peak = barycentric_peak_interp(fft, x)
 
@@ -125,10 +125,6 @@ class SSTVDecoder(object):
 
         for current_sample in range(0, len(self._samples) - header_size,
                                     jump_size):
-            # Update search progress message
-            if current_sample % (jump_size * 256) == 0:
-                search_msg = "Searching for calibration header... {:.1f}s"
-                progress = current_sample / self._sample_rate
 
             search_end = current_sample + header_size
             search_area = self._samples[current_sample:search_end]
@@ -274,8 +270,6 @@ class SSTVDecoder(object):
                     freq = self._peak_fft_freq(pixel_area)
 
                     image_data[line][chan][px] = calc_lum(freq)
-
-            progress_bar(line, height - 1, "Decoding image...")
 
         return image_data
 
