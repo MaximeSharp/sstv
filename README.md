@@ -29,6 +29,8 @@ with SSTVDecoder(wav_file) as sstv:
     print("Error while saving the image")
 ```
 
+<details>
+<summary>Original README.md</summary>
 
 SSTV Decoder
 ============
@@ -61,3 +63,4 @@ Resources Used
 --------------
 
 * SSTV specification/timings - [The Dayton Paper](http://webcache.googleusercontent.com/search?q=cache:GzP65FlYEtwJ:www.barberdsp.com/downloads/Dayton%2520Paper.pdf)
+</details>
