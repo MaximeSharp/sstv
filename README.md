@@ -1,3 +1,35 @@
+SSTV Decoder (modified)
+============
+Modified version of [SSTV Decoder](https://github.com/colaclanth/sstv)
+
+This version had no console output so it can be used in a bot.
+
+
+Installation
+------------
+$ pip install sstv@git+https://github.com/MaximeSharp/sstv.git
+
+
+Usage
+-----
+```
+from sstv.decode import SSTVDecoder
+
+wav_file = "my_wave_file.wav"
+img_file = "my_img_file.png"
+
+with SSTVDecoder(wav_file) as sstv:
+  img = sstv.decode(0.0)
+  if img is None:
+    print("Not a valid audio file")
+  try:
+    img.save(img_file)
+    print("Image saved successfully")
+  except:
+    print("Error while saving the image")
+```
+
+
 SSTV Decoder
 ============
 
