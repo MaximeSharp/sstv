@@ -2,7 +2,7 @@ SSTV Decoder (modified)
 ============
 Modified version of [SSTV Decoder](https://github.com/colaclanth/sstv)
 
-This version had no console output so it can be used in a bot.
+This version has no console output so it can be used in a bot.
 
 
 Installation
